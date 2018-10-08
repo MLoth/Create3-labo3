@@ -647,10 +647,6 @@ input::placeholder {
     box-shadow: var(--focus-shadow);
 }
 
-.c-input:focus + .c-label--floating {
-	transform: translateY( -24px );
-}
-
 /*
 Input password with toggle checkbox on top of it needs
 more padding on the right to avoid overlap
@@ -680,50 +676,13 @@ more padding on the right to avoid overlap
     color: var(--color-neutral-x-dark);
 }
 
-.c-label--option {
-    padding-bottom: 0;
-    margin-left: 8px;
-}
-
-.c-label--floating {
-	position: absolute;
-	top: 12px;
-	left: 8px;
-
-	padding: 4px 8px;
-
-	will-change: transform;
-	transform: translateY( 0 );
-	transition: transform 200ms ease-in-out;
-
-	box-shadow: 0 0 4px 4px rgba(255,255,255,0.8);
-	background: white;
-}
-
-.is-floating {
-	transform: translateY( -24px );
-}
-
 /*
     Component: Dropdown Button
     ---
     Class to put on form buttons or
 */
 
-.c-dropdown {
-	position: relative;
-}
 
-.c-dropdown__list {
-	position: absolute;
-	top: calc( 48px + 4px );
-	left: 0;
-
-	flex-direction: column;
-	z-index: 100;
-	background: white;
-	display: none;
-}
 
 /*
     Component: Button
@@ -759,66 +718,12 @@ more padding on the right to avoid overlap
     box-shadow: none;
 }
 
-.c-button-dropdown {
-	position: relative;
-	display: inline-flex;
-	width: auto;
-
-	font-size: 14px;
-	font-weight: 600;
-	color: var(--color-neutral-xxxx-dark);
-
-	outline: none;
-
-	border: 1px solid var(--color-neutral-xxx-light);
-	background-color: var(--color-neutral-xxxxx-light);
-}
-
-.c-button-dropdown:hover {
-	background-color: var(--color-neutral-xxx-light);
-}
-
-.c-button-dropdown:focus {
-	background: none;
-}
-
-.c-button-dropdown.is-opened .c-button__symbol {
-	transform: rotate( 180deg );
-}
-
-.c-button-dropdown + .c-button-dropdown {
-	margin-top: -1px;
-}
-
-.c-button-dropdown.is-opened + .c-dropdown__list {
-	display: inline-flex;
-}
-
-.c-button__symbol {
-	max-width: 18px;
-	height: 24px;
-	width: auto;
-	margin-left: 8px;
-
-	fill: var( --color-neutral-dark );
-
-	transform: rotate(0);
-	transition: transform 200ms ease-in-out;
-}
-
 /*
     Component: Option list
     ---
 
 */
 
-.c-option-list {
-	margin-bottom: 24px;
-}
-
-.c-option-list__item {
-	margin-bottom: 12px;
-}
 
 /*
     Custom option
@@ -904,61 +809,7 @@ more padding on the right to avoid overlap
 	---
 	Custom checkboxes & radio buttons
 */
-.c-input__range {
-	display: block;
-	height: 8px;
-	padding: 0;
 
-	border-radius: 8px;
-
-    background-color: var(--color-neutral-xxxx-light);
-    border: 1px solid var(--color-neutral-xxx-light);
-    /* transition: all var(--transition-alpha); */
-}
-
-.c-input__range::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-
-	width: 18px;
-	height: 18px;
-
-	border-radius: 8px;
-
-	background: var(--color-alpha );
-}
-
-.c-input__range-holder {
-	display: inline-block;
-	/* display: block; */
-	/* KEEP MARGIN FROM THE THUMB */
-	/* width: calc( 100% - 18px ); */
-	transform: translateX( -9px );
-}
-
-.c-input__range-holder::after {
-	content: attr(data-value);
-	display: inline-block;
-	margin-top: 12px;
-
-	width: 32px;
-	padding: 4px;
-
-	font-size: .8rem;
-	text-align: center;
-
-	border-radius: 4px;
-	background: var( --color-neutral-xxxx-light );
-	/* opacity: .4; */
-	transform: scale( 0 );
-	transition: transform 200ms ease-in-out;
-	transform-origin: center top;
-}
-
-.c-input__range:focus + .c-input__range-holder::after {
-	/* opacity: 1; */
-	transform: scale( 1 );
-}
 
 /*
     Component: Custom Toggle
@@ -1114,121 +965,12 @@ Component: Password Toggle
 Password toggle custom checkbox
 */
 
-.c-password-toggle-container {
-	position: relative;
-    display: block;
-}
 
-.c-password-toggle {
-	position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.c-password-toggle__label {
-	display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    -ms-align-items: center;
-    align-items: center;
-    padding: 14px 16px;
-}
-
-.c-password-toggle__symbol {
-	display: block;
-    width: 20px;
-    height: 20px;
-    fill: var(--color-neutral-x-light);
-}
-
-.c-password-toggle__symbol--hide {
-	display: none;
-}
-
-.c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__symbol--hide {
-	display: block;
-}
-
-.c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__symbol--show {
-	display: none;
-}
 /*
 	Component: Custom Like
 	---
 	Custom like button
 */
-
-@keyframes grow {
-	to {
-		transform: scale(2.5);
-		opacity: 0;
-	}
-}
-
-.c-like {
-
-}
-
-.c-like__input {
-
-}
-
-.c-like__input:checked + .c-like__label .c-like__symbol {
-	transform: scale(1.1);
-	fill: #D80027;
-}
-
-.c-like__symbol {
-	position: relative;
-	width: 24px;
-	fill: var( --color-neutral-x-light );
-	transform: scale(1);
-	transition: transform 600ms cubic-bezier(0.175, 0.885, 0.32, 2.275);
-	will-change: transform;
-}
-
-.c-like__symbol::after {
-	content: '';
-	display: block;
-	width: 100%;
-	height: 100%;
-	background: green;
-}
-
-.c-like__symbol:active {
-	transform: scale(.9);
-}
-
-.c-like__label {
-
-}
-
-/*
-	Component: Magic Button
-	---
-	Custom magic button
-*/
-
-.c-magic-button {
-	position: relative;
-	overflow: hidden;
-}
-
-.c-magic-circle {
-	position: absolute;
-    z-index: 0;
-    background-color:var(--color-alpha-x-dark);
-    border-radius: 50%;
-    transform: scale(0);
-    opacity: 1;
-    width: 100px;
-    height: 100px;
-}
-
-.c-magic-grow {
-	animation: grow .5s linear;
-}
 
 
 /*------------------------------------*\
